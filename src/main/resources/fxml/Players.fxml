@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.lang.String?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.basketball_management_system.controller.PlayersController">
+
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="10"/>
+            </padding>
+            <Label text="Players Management" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Refresh" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="table" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
+                <TableColumn fx:id="colAge" text="Age" prefWidth="80"/>
+                <TableColumn fx:id="colPosition" text="Pos" prefWidth="80"/>
+                <TableColumn fx:id="colTeam" text="Team ID" prefWidth="90"/>
+                <TableColumn fx:id="colPts" text="PTS" prefWidth="80"/>
+                <TableColumn fx:id="colAst" text="AST" prefWidth="80"/>
+                <TableColumn fx:id="colReb" text="REB" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="8">
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12"/>
+            </padding>
+
+            <Label text="Add Player" style="-fx-font-weight: bold;"/>
+
+            <GridPane hgap="10" vgap="8">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="15"/>
+                    <ColumnConstraints percentWidth="35"/>
+                    <ColumnConstraints percentWidth="15"/>
+                    <ColumnConstraints percentWidth="35"/>
+                </columnConstraints>
+
+                <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtName" promptText="Full name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Age:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtAge" promptText="10-50" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Position:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cbPosition" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="PG"/>
+                            <String fx:value="SG"/>
+                            <String fx:value="SF"/>
+                            <String fx:value="PF"/>
+                            <String fx:value="C"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label text="Team:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="cbTeam" promptText="Select team" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Add Player" onAction="#onAddPlayer"/>
+                <Button text="Delete Selected" onAction="#onDeleteSelected"/>
+                <Button text="Declare roster" onAction="#onOpenRosterWindow"/>
+                <Button text="Transfer Player" onAction="#onOpenTransferWindow"/>
+                <Button text="View Logs" onAction="#onViewLogs"/>
+                <Label fx:id="lblStatus" style="-fx-text-fill: #555;"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

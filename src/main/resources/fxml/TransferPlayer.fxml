@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.basketball_management_system.controller.TransferPlayerController"
+      spacing="10" padding="10">
+
+    <Label text="Transfer Player" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <Label text="Player:"/>
+        <ComboBox fx:id="cbPlayer" prefWidth="350"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="New team:"/>
+        <ComboBox fx:id="cbNewTeam" prefWidth="250"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Button text="Transfer" onAction="#onTransfer"/>
+        <Button text="Close" onAction="#onClose"/>
+        <Label fx:id="lblInfo" />
+    </HBox>
+
+</VBox>

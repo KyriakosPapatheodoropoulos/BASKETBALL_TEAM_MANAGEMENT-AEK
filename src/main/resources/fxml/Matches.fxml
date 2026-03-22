@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.basketball_management_system.controller.MatchesController">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <children>
+                <Label text="Date:"/>
+                <DatePicker fx:id="datePicker"/>
+
+                <Label text="Home:"/>
+                <ComboBox fx:id="homeCombo" prefWidth="220"/>
+
+                <Label text="Away:"/>
+                <ComboBox fx:id="awayCombo" prefWidth="220"/>
+
+                <Button text="Create match" onAction="#onCreateMatch"/>
+                <Button text="Refresh" onAction="#onRefresh"/>
+            </children>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="matchesTable">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="110"/>
+                <TableColumn fx:id="homeColumn" text="Home Team" prefWidth="210"/>
+                <TableColumn fx:id="awayColumn" text="Away Team" prefWidth="210"/>
+                <TableColumn fx:id="scoreColumn" text="Score" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <children>
+                <TextField fx:id="scoreHomeField" promptText="Home pts" prefWidth="90"/>
+                <TextField fx:id="scoreAwayField" promptText="Away pts" prefWidth="90"/>
+                <Button text="Set score" onAction="#onSetScore"/>
+                <Button text="Delete match" onAction="#onDeleteMatch"/>
+                <Button text="Close" onAction="#onClose"/>
+                <Button text="Δήλωση 12άδας"
+                        onAction="#onManageRoster" />
+
+            </children>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.basketball_management_system.controller.MatchRosterController">
+
+    <!-- Επάνω: επιλογή αγώνα + επιλογή ομάδας + μετρητής επιλογών -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <children>
+                <Label text="Match:"/>
+                <ComboBox fx:id="matchCombo" prefWidth="260"/>
+
+                <Label text="Team:"/>
+                <ComboBox fx:id="sideCombo" prefWidth="140"/>
+
+                <Label fx:id="selectedCountLabel" text="Selected 0/12"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </HBox>
+    </top>
+
+    <!-- Κέντρο: πίνακας με παίκτες ομάδας (μέχρι 15) -->
+    <center>
+        <TableView fx:id="playersTable">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="200"/>
+                <TableColumn fx:id="positionColumn" text="Pos" prefWidth="80"/>
+                <TableColumn fx:id="ageColumn" text="Age" prefWidth="60"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- Κάτω: κουμπιά -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <children>
+                <Button text="Save roster" onAction="#onSave"/>
+                <Button text="Close" onAction="#onClose"/>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </HBox>
+    </bottom>
+
+</BorderPane>

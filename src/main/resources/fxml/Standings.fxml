@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.basketball_management_system.controller.StandingsController">
+
+    <center>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="colRegion" text="Region"   prefWidth="100"/>
+                <TableColumn fx:id="colTeam"   text="Team"     prefWidth="200"/>
+                <TableColumn fx:id="colWins"   text="Wins"     prefWidth="80"/>
+                <TableColumn fx:id="colLosses" text="Losses"   prefWidth="80"/>
+                <TableColumn fx:id="colWinPct" text="Win %"    prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" padding="10">
+            <Button text="Refresh" onAction="#onRefresh"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Close" onAction="#onClose"/>
+        </HBox>
+    </bottom>
+</BorderPane>
